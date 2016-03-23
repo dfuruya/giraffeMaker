@@ -1,4 +1,5 @@
-//everything consolidated into a single global variable.
+// Like the Extend example, but without using '_.extend'
+
 giraffeMaker.giraffeMethods = {};
 
 giraffeMaker.giraffeMethods.isTallEnough = function(treeHeight) {

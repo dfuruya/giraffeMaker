@@ -1,27 +1,29 @@
-//extending properties saves you from having to add each one individually.
+// Using 'extend' separates the properties and methods 
+// for the giraffeMaker class, making it easier to read.  
+// Also, this pattern prevents the sharing of the 
+// 'giraffeMethods' globally. 
 
 var giraffeMaker = function(name, height) {
   var newGiraffe = {};
   newGiraffe.name = name;
   newGiraffe.height = height;
   newGiraffe.hunger = 10;
-  extend(newGiraffe, giraffeMaker.giraffeMethods);
+
+  // Extend the methods defined in the 
+  // 'giraffeMaker.giraffeMethods' below
+  _.extend(newGiraffe, giraffeMaker.giraffeMethods);
 
   return newGiraffe;
 };
 
-var extend = function(to, from) {
-  for (var key in from) {
-    to[key] = from[key];
-  }
-};
-
+// Creating an object that will contain methods 
+// to be extended to the giraffeMaker class
 giraffeMaker.giraffeMethods = {};
 
-
+// Adding a method property to the methods object
 giraffeMaker.giraffeMethods.isTallEnough = function(treeHeight) {
-    return this.height > treeHeight;
-  };
+  return this.height > treeHeight;
+};
 
 giraffeMaker.giraffeMethods.isHungry = function() {
   return this.hunger > 0;
@@ -47,10 +49,11 @@ giraffeMaker.giraffeMethods.eat = function() {
   }
 };
 
+
 giraffeMaker.giraffeMethods.browse = function() {
   if (this.isTallEnough(2)) {
     this.eat();
   } else {
-    this.say('notTallEnough')
+    this.say('notTallEnough');
   }
 };

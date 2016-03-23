@@ -1,3 +1,9 @@
+// This is the Functional method of inheritance. 
+// All methods are contained within the same scope as the constructor.
+// Disadvantages of using this when instantiating 'giraffeMaker' objects 
+// is that you are essentially creating the methods each time you invoke 
+// the giraffeMaker function, and may become expensive in terms of memory.
+
 var giraffeMaker = function(name, height) {
   var newGiraffe = {};
   newGiraffe.name = name;
@@ -36,7 +42,7 @@ var giraffeMaker = function(name, height) {
     if (newGiraffe.isTallEnough(2)) {
       newGiraffe.eat();
     } else {
-      newGiraffe.say('notTallEnough')
+      newGiraffe.say('notTallEnough');
     }
   };
 

@@ -1,5 +1,8 @@
-//function sharing - these are global functions which the maker function points to.
+// This function sharing method uses global functions which is 
+// pointed to within the definition of the 'giraffeMaker' class.
 
+// These methods are defined before the 'giraffeMaker' class 
+// so that we can call them globally. 
 var isTallEnough = function(treeHeight) {
   return this.height > treeHeight;
 };
@@ -32,7 +35,7 @@ var browse = function() {
   if (this.isTallEnough(2)) {
     this.eat();
   } else {
-    this.say('notTallEnough')
+    this.say('notTallEnough');
   }
 };
 
@@ -42,6 +45,7 @@ var giraffeMaker = function(name, height) {
   newGiraffe.height = height;
   newGiraffe.hunger = 10;
 
+  // These properties will refer to (not copy) the methods above
   newGiraffe.eat = eat;
   newGiraffe.browse = browse;
   newGiraffe.isTallEnough = isTallEnough;

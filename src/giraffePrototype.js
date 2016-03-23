@@ -1,6 +1,11 @@
-//prototypal inheritence
+// The prototypal pattern is used best for subclasses, 
+// in which you want to customize the properties, but 
+// still inherit the same methods. 
 
 var giraffeMaker = function(name, height) {
+  // Using 'Object.create' vs '.prototype' will create 
+  // an object with a specific methods 'giraffeMaker.stuff'
+  // that will only apply to 'newGiraffe'.
   var newGiraffe = Object.create(giraffeMaker.stuff);
   newGiraffe.name = name;
   newGiraffe.height = height;
@@ -9,6 +14,7 @@ var giraffeMaker = function(name, height) {
   return newGiraffe;
 };
 
+// Creating an object that will house the methods of 'giraffeMaker'
 giraffeMaker.stuff = {};
 
 giraffeMaker.stuff.isTallEnough = function(treeHeight) {

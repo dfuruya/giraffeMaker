@@ -1,9 +1,12 @@
-//shared functions consolidated into a single object, reducing the amount of variables in the global scope to two.
+// This function sharing method separates the methods 
+// and the constructor into two global variables, allowing
+// global access to the methods as well. 
+
 var giraffeMethods = {};
 
 giraffeMethods.isTallEnough = function(treeHeight) {
-    return this.height > treeHeight;
-  };
+  return this.height > treeHeight;
+};
 
 giraffeMethods.isHungry = function() {
   return this.hunger > 0;
@@ -33,7 +36,7 @@ giraffeMethods.browse = function() {
   if (this.isTallEnough(2)) {
     this.eat();
   } else {
-    this.say('notTallEnough')
+    this.say('notTallEnough');
   }
 };
 
